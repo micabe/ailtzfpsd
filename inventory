@@ -1,0 +1,6 @@
+---
+all:
+  children:
+    nodes:
+      hosts:
+        node_exporter: {}

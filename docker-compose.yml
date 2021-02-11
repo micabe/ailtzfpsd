@@ -1,0 +1,22 @@
+version: '2'
+services:
+
+  zookeeper:
+    image: zookeeper:latest
+    ports:
+      - "2181:2181"
+    container_name: zookeeper
+
+  prometheus:
+    image: quay.io/prometheus/prometheus:v2.24.0
+    ports: 
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    container_name: prometheus
+
+  node_exporter:
+    image: quay.io/prometheus/node-exporter:latest
+    ports: 
+      - "9100:9100"
+    container_name: node_exporter
