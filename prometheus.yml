@@ -24,24 +24,3 @@ scrape_configs:
     serverset_sd_configs: # zookeeper service discovery
       - servers: ['zookeeper']
         paths: ['/inventory/all']
-  - job_name: 'elasticsearch health'
-    serverset_sd_configs: # zookeeper service discovery
-      - servers: ['zookeeper']
-        paths: ['/inventory/elasticsearch']
-  - job_name: 'zookeeper health'
-    serverset_sd_configs: # zookeeper service discovery
-      - servers: ['zookeeper']
-        paths: ['/inventory/zookeeper']
-  - job_name: 'rabbitmq health'
-    serverset_sd_configs: # zookeeper service discovery
-      - servers: ['zookeeper']
-        paths: ['/inventory/rabbitmq']
-  - job_name: 'nginx health'
-    serverset_sd_configs: # zookeeper service discovery
-      - servers: ['zookeeper']
-        paths: ['/inventory/nginx']
-  - job_name: 'haproxy health'
-    serverset_sd_configs: # zookeeper service discovery
-      - servers: ['zookeeper']
-        paths: ['/inventory/haproxy']
-
