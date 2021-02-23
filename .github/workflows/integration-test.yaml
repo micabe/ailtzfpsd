@@ -1,0 +1,14 @@
+name: Integration-Tests
+
+on: push
+
+jobs:
+  integration-tests:
+    name: Integration Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build the stack
+        run: docker-compose up -d
