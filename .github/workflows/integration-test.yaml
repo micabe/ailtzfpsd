@@ -24,5 +24,9 @@ jobs:
           pip install -r requirements.txt    
       - name: Run script inventory-uploader.py
         run: python inventory-uploader.py localhost inventory
+      - name: Sleep for 30 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '15s'
       - name: Run tests
         run: pytest
