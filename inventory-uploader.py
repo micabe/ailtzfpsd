@@ -26,7 +26,7 @@ def uploadExportersEndpoint(
     zk_host, zk_port, inventory_file_name, host_group, exporter_port
 ):
     data_loader = DataLoader()
-    inventory = InventoryManager(loader = data_loader, sources=[inventory_file_name])
+    inventory = InventoryManager(loader=data_loader, sources=[inventory_file_name])
     for i in range(len(inventory.get_groups_dict()[host_group])):
         serverset_member = (
             '{"serviceEndpoint":{"host":"',
@@ -35,7 +35,7 @@ def uploadExportersEndpoint(
             exporter_port,
             '},"additionalEndpoints":{},"status":"ALIVE"}',
         )
-        serverset_member="".join(map(str, serverset_member))
+        serverset_member = "".join(map(str, serverset_member))
         host = inventory.get_groups_dict()[host_group][i]
         createZkNode(zk_host, zk_port, host_group, host, serverset_member)
 
