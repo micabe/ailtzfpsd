@@ -24,3 +24,5 @@ jobs:
           pip install -r requirements.txt    
       - name: Run script inventory-uploader.py
         run: python inventory-uploader.py localhost inventory
+      - name: Run tests
+        run: pytest
