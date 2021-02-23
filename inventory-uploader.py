@@ -13,6 +13,7 @@ def listToString(s):
     # return string
     return str1
 
+
 def createZkNode(zk_host, zk_port, host_group, host, serverset_member):
     zk_connection_string = zk_host + ":" + zk_port
     zk = KazooClient(hosts=zk_connection_string)
@@ -21,6 +22,7 @@ def createZkNode(zk_host, zk_port, host_group, host, serverset_member):
     zk_node = "inventory/" + host_group + "/" + host
     zk.ensure_path(zk_node)
     zk.set(zk_node, str(serverset_member).encode())
+
 
 def uploadExportersEndpoint(
     zk_host, zk_port, inventory_file_name, host_group, exporter_port
@@ -39,8 +41,10 @@ def uploadExportersEndpoint(
         host = inventory.get_groups_dict()[host_group][i]
         createZkNode(zk_host, zk_port, host_group, host, serverset_member)
 
+
 def nodeExporter(zk_host, zk_port, inventory_file_name):
     uploadExportersEndpoint(zk_host, zk_port, inventory_file_name, "all", 9100)
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
